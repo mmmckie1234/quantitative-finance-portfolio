@@ -7,7 +7,7 @@ sigma = 0.20
 T = 1
 
 n_days = 252
-n_simulations = 1000
+n_simulations = 10
 
 dt = T / n_days
 
@@ -24,7 +24,7 @@ for t in range(1, n_days + 1):
 
 plt.plot(S.T)
 
-plt.title("10 Simulated Share Price Paths")
+plt.title("Simulated Share Price Paths")
 plt.xlabel("Trading Day")
 plt.ylabel("Share Price (£)")
 

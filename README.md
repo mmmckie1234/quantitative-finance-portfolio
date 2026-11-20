@@ -16,7 +16,7 @@ The project combines financial mathematics, probability theory, numerical analys
 
 The project focuses on European call options.
 
-A European call option gives its holder the right, but not the obligation, to purchase an underlying asset at a predetermined strike price at the option's expiry date.
+A European call option gives its holder the right, but not the obligation, to purchase an underlying asset at a predetermined strike price at its expiry date.
 
 The payoff at expiry is:
 
@@ -65,7 +65,9 @@ $$
 d_2=d_1-\sigma\sqrt{T}
 $$
 
-This method will provide a benchmark against which the numerical methods can be evaluated.
+Here, $N(x)$ denotes the cumulative distribution function of the standard normal distribution.
+
+This method provides a theoretical benchmark against which the numerical methods can be evaluated.
 
 ### 2. Monte Carlo Simulation
 
@@ -106,14 +108,15 @@ The aim is to investigate numerical methods for approximating the solution, incl
 
 ## Current Implementation
 
-The following components have been implemented:
+The project currently includes:
 
 - Simulation of future asset prices using Geometric Brownian Motion.
 - Generation and visualisation of individual simulated price paths.
-- Generation of multiple simulated price paths.
+- Generation and visualisation of multiple simulated price paths.
 - Monte Carlo estimation of European call option prices.
+- Analytical pricing of European call options using the Black-Scholes model.
 
-Further development will include the analytical Black-Scholes implementation, finite difference methods and a systematic comparison of the three approaches.
+Further development will focus on validating the Monte Carlo estimates against the Black-Scholes benchmark, investigating numerical convergence and implementing finite difference methods.
 
 ## Technologies
 
@@ -128,29 +131,14 @@ Further development will include the analytical Black-Scholes implementation, fi
 quantitative-finance-portfolio/
 │
 ├── README.md
+├── requirements.txt
 │
 ├── 01_options_pricing/
 │   ├── gbm_simulation.py
 │   ├── gbm_paths.py
 │   ├── multiple_gbm_paths.py
-│   └── monte_carlo.py
+│   ├── monte_carlo.py
+│   └── black_scholes.py
 │
-├── 02_analysis/
-│
-└── requirements.txt
-```
-
-## Future Development
-
-Planned extensions include:
-
-- Implementing the Black-Scholes analytical pricing formula.
-- Implementing finite difference methods to solve the Black-Scholes PDE.
-- Investigating Monte Carlo convergence as the number of simulations increases.
-- Analysing the effect of volatility, strike price and time to expiry on option prices.
-- Comparing pricing accuracy and computational efficiency across all three methods.
-- Producing visualisations of numerical results.
-
-## Objective
-
-The overall objective is to develop a deeper understanding of quantitative finance through the practical implementation of mathematical models and numerical methods, while producing a reproducible Python project demonstrating analytical problem-solving and computational skills.
+└── 02_analysis/
+    └── black_scholes_validation.py
